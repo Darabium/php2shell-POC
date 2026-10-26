@@ -59,33 +59,41 @@ If you need to **confirm** exploitability, use a binary symbol check on the host
 
 ## Installation
 
-```bash
+```
 pip install requests
+```
 Only requests is required. Everything else is Python standard library.
 
 Usage
 Basic version check (safe, GET only)
-bash
+```
 python3 php2shell-audit.py -u https://target.example.com
+```
 Scan a list of targets (live output)
-bash
+```
 python3 php2shell-audit.py -l targets.txt
+```
 Enable the optional session probe
-bash
+```
 # Only on authorized targets. Sends one multipart POST.
 python3 php2shell-audit.py -u https://target.example.com --probe
+```
 JSON output for CI
-bash
+```
 python3 php2shell-audit.py -l targets.txt --json
+```
 Local backport check (on the PHP host)
-bash
+```
 python3 php2shell-audit.py --local -u https://target.example.com
+```
 Print remediation guide
-bash
+```
 python3 php2shell-audit.py --harden
+```
 Full help
-bash
+```
 python3 php2shell-audit.py -h
+```
 Exit Codes
 Code	Meaning
 0	All targets appear patched or backported
@@ -123,8 +131,9 @@ RCE confirmation is out of scope. Memory-corruption exploitability cannot be pro
 For authoritative guidance, consult the official PHP advisory and your distribution's security tracker.
 
 Remediation Quick Guide
-bash
+
 python3 php2shell-audit.py --harden
+
 Key points:
 
 Update to 8.5.12 / 8.4.27 / 8.3.36 / 8.2.35 — then restart PHP-FPM/Apache.
@@ -136,7 +145,7 @@ CVE-2026-109618 partial mitigation: set memory_limit = -1.
 EOL branches (≤ 8.1): migrate, or verify a vendor backport.
 
 Mitigations reduce exposure; only a full update is a complete fix.
-
+```
 Disclaimer
 This tool reflects publicly available information at the time of writing. Vulnerability details, patched versions, and mitigations may change. Always cross-check with official vendor advisories before making security decisions.
 
@@ -145,4 +154,4 @@ The authors are not responsible for any damage, legal consequences, or misuse ar
 License
 MIT License — see LICENSE for details.
 
-```
+
